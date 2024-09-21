@@ -1,9 +1,9 @@
 import logo from "../assets/logo.png";
 import image from "../assets/logintheme.jpg";
 
-function Login() {
+function SignUp() {
   return (
-    <div className="main-container flex items-center justify-center w-full h-screen bg-blue-300">
+    <div className="main-container flex items-center justify-center w-full h-screen bg-blue-200">
       <div className=" grid grid-cols-2 mx-10 rounded-md overflow-hidden bg-white">
         <div
           className="login px-20 py-10
@@ -68,4 +68,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;

@@ -1,10 +1,13 @@
-import Login from "./pages/Login";
-// import Test from "./pages/test";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+// import SignUp from "./pages/SignUp";
 
 function App() {
-  return <div>
-    <Login/>
-     </div>;
+  return (
+    <div>
+      <SignIn />
+    </div>
+  );
 }
 
 export default App;
