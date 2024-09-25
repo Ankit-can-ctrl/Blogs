@@ -7,7 +7,7 @@ import {
   SignIn,
   Writerpage,
 } from "./pages/index";
-
+import Test from "./pages/Test";
 function App() {
   const theme = "light";
 
@@ -22,7 +22,7 @@ function App() {
             <Route path="/writer/:id" element={<Writerpage />} />
           </Route>
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-in" element={<Test />} />
         </Routes>
       </div>
     </main>

@@ -1,74 +1,44 @@
-import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 import image from "../assets/logintheme.jpg";
+import logo from "../assets/logo.png";
 
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 function SignIn() {
   return (
-    <div className="main-container flex items-center justify-center w-full h-screen bg-blue-200">
-      <div className=" grid grid-cols-2 mx-10 rounded-md overflow-hidden bg-white">
-        <div
-          className="login px-20 py-10
-         flex flex-col gap-10"
-        >
-          <div className="header flex items-center justify-start gap-2">
-            <img className=" w-[50px]" src={logo} alt="logo" />
-            <h1 className="title font-sec font-bold text-3xl text-gray-700">
-              BlogBox
-            </h1>
+    <div className="main-container w-full h-screen bg-blue-300 flex items-center justify-center overflow-hidden">
+      <div className=" sub-container w-[93%] h-[90%] md:w-[80%] md:h-[80%] rounded-md shadow-xl bg-gray-200 grid grid-cols-2">
+        <div className="Form p-5">
+          <div className="head">
+            <Link to="/" className="flex items-center justify-start gap-5">
+              <img className="w-14" src={logo} alt="logo" />
+              <h1 className=" font-head font-semibold text-4xl text-gray-700 ">
+                BlogBox
+              </h1>
+            </Link>
           </div>
-          <div className="form pl-10 font-sec mt-10  flex flex-col gap-3 items-start justify-center h-[70%]">
-            <h3 className=" text-md text-gray-400">
-              Welcome to your blog journey
-            </h3>
-            <h2 className=" font-semibold text-gray-700 text-3xl">
-              SignIn to BlogBox
-            </h2>
-            <form action="/" className=" flex mt-5 flex-col gap-3">
-              <label
-                htmlFor="email"
-                className=" text-xl text-gray-500 font-semibold"
+          <div className="form w-full">
+            <div className="form-title">
+              <p>Start you journey</p>
+              <h1>Sign Up to BlogBox</h1>
+            </div>
+            <form action="/">
+              <Box
+                component="form"
+                sx={{ "& > :not(style)": { m: 1, width: "25ch" } }}
+                noValidate
+                autoComplete="off"
               >
-                E-mail
-              </label>
-              <input
-                type="email"
-                className=" p-4 text-md outline-none rounded-sm min-h-12 bg-gray-200 min-w-[400px] font-semibold text-gray-700"
-                id="email"
-                placeholder="example@gmail.com"
-              />
-              <label
-                htmlFor="pass"
-                className=" text-xl text-gray-500 font-semibold"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                className=" p-4 text-md outline-none rounded-sm min-h-12 bg-gray-200 min-w-[400px] font-semibold text-gray-700"
-                id="pass"
-                placeholder="Password"
-              />
-              <button
-                type="submit"
-                className=" bg-blue-400 mt-2 text-xl p-4 rounded-sm text-white font-semibold hover:bg-blue-600 hover:text-white"
-              >
-                Sign In
-              </button>
-              <div className="Google_sign_in">
-                <h3>or sign in with</h3>
-                <button></button>
-              </div>
+                <TextField
+                  id="outlined-basic"
+                  label="Email"
+                  variant="outlined"
+                />
+              </Box>
             </form>
           </div>
-          <div className="form-footer pl-10 font-semibold text-gray-500 flex">
-            <p>Dont have an account? </p>
-            <a href="/signup" className=" text-blue-700 underline">
-              Sign Up
-            </a>
-          </div>
         </div>
-        <div className="img">
-          <img className=" h-full" src={image} alt="login page" />
-        </div>
+        <div className="img"></div>
       </div>
     </div>
   );

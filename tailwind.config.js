@@ -5,8 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        main: ["Fira Sans", "sans-serif"],
-        sec: ["Anek Devanagari", " sans-serif"],
+        head: ["Cormorant Garamond", "serif"],
       },
     },
   },
