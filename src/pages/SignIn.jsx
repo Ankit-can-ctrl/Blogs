@@ -53,6 +53,10 @@ function SignIn() {
               >
                 Sign In
               </button>
+              <div className="Google_sign_in">
+                <h3>or sign in with</h3>
+                <button></button>
+              </div>
             </form>
           </div>
           <div className="form-footer pl-10 font-semibold text-gray-500 flex">
