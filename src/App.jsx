@@ -1,4 +1,5 @@
 import { Route, Routes, Outlet } from "react-router-dom";
+
 import {
   BlogDetails,
   CategoriesPage,
@@ -7,23 +8,28 @@ import {
   SignIn,
   Writerpage,
 } from "./pages/index";
-import Test from "./pages/Test";
-function App() {
-  const theme = "light";
+import Loader from "./components/Loader";
 
+function App() {
+  const isLoading = false;
+  const theme = "light";
   return (
     <main className={theme}>
       <div className=" w-full min-h-screen relative bg-white dark:bg-[#020b19]">
-        <Routes>
-          <Route element={<Layout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/category" element={<CategoriesPage />} />
-            <Route path="/:slug/:id?" element={<BlogDetails />} />
-            <Route path="/writer/:id" element={<Writerpage />} />
-          </Route>
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/sign-in" element={<Test />} />
-        </Routes>
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/category" element={<CategoriesPage />} />
+              <Route path="/:slug/:id?" element={<BlogDetails />} />
+              <Route path="/writer/:id" element={<Writerpage />} />
+            </Route>
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/sign-in" element={<SignIn />} />
+          </Routes>
+        )}
       </div>
     </main>
   );

@@ -1,15 +1,16 @@
 import { TextField, Checkbox, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import image from "../assets/logo.png";
+import theme from "../assets/logintheme.jpg";
 
 const SignInPage = () => {
   return (
-    <div className="flex h-screen bg-purple-600">
+    <div className="flex h-screen bg-purple-600 items-center justify-center">
       <div className="md:m-auto m-5 bg-white md:w-[90%] md:h-[90%] md:grid grid-cols-2 rounded-lg shadow-xl overflow-hidden">
-        <div className="  flex flex-col w-full h-full items-start justify-between px-10 py-20 md:p-20">
-          <Link className="mb-8 flex items-center justify-start gap-2">
+        <div className="  flex flex-col w-full h-full items-start md:items-center justify-between px-10 py-20 md:p-10 md:pb-20">
+          <Link className="mb-8 w-full flex items-center justify-start gap-2">
             <img className=" w-12" src={image} alt="logo" />
-            <h1 className="text-5xl font-bold text-gray-700">BlogBox</h1>
+            <h1 className="text-3xl font-bold text-gray-700">BlogBox</h1>
           </Link>
           <div className="form">
             <div className="form-head">
@@ -101,7 +102,11 @@ const SignInPage = () => {
             </form>
           </div>
         </div>
-        <div className=" hidden md:flex bg-gradient-to-br from-purple-500 via-pink-500 to-blue-500">
+        <div className=" hidden md:flex ">
+          <picture>
+            <source srcSet={theme} type="image/webp" />
+            <img className=" h-full" src={theme} alt="image" />
+          </picture>
           {/* This div creates the colorful background */}
         </div>
       </div>

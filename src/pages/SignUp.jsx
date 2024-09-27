@@ -1,71 +1,147 @@
-import logo from "../assets/logo.png";
-import image from "../assets/logintheme.jpg";
+import { TextField, Checkbox, Button } from "@mui/material";
+import { Link } from "react-router-dom";
+import image from "../assets/logo.png";
+import theme from "../assets/logintheme.jpg";
 
-function SignUp() {
+import { useState } from "react";
+
+const intialUserData = {
+  Username: "",
+  Email: "",
+  Password: "",
+};
+
+const SignUp = () => {
+  const [signUp, setSignUp] = useState(intialUserData);
+
+  function onSignUpChange(e) {
+    setSignUp({ ...signUp, [e.target.name]: e.target.value });
+    console.log(signUp);
+  }
+
   return (
-    <div className="main-container flex items-center justify-center w-full h-screen bg-blue-200">
-      <div className=" grid grid-cols-2 mx-10 rounded-md overflow-hidden bg-white">
-        <div
-          className="login px-20 py-10
-         flex flex-col gap-10"
-        >
-          <div className="header flex items-center justify-start gap-2">
-            <img className=" w-[50px]" src={logo} alt="logo" />
-            <h1 className="title font-sec font-bold text-3xl text-gray-700">
-              BlogBox
-            </h1>
-          </div>
-          <div className="form pl-10 font-sec mt-10  flex flex-col gap-3 items-start justify-center h-[70%]">
-            <h3 className=" text-md text-gray-400">Start your blog journey</h3>
-            <h2 className=" font-semibold text-gray-700 text-3xl">
-              Sign Up to BlogBox
-            </h2>
-            <form action="/" className=" flex mt-5 flex-col gap-3">
-              <label
-                htmlFor="email"
-                className=" text-xl text-gray-500 font-semibold"
-              >
-                E-mail
-              </label>
-              <input
-                type="email"
-                className=" p-4 text-md outline-none rounded-sm min-h-12 bg-gray-200 min-w-[400px] font-semibold text-gray-700"
-                id="email"
-                placeholder="example@gmail.com"
+    <div className="flex h-screen bg-purple-600 items-center justify-center">
+      <div className="md:m-auto m-5 bg-white md:w-[90%] md:h-[90%] lg:grid grid-cols-2 rounded-lg shadow-xl overflow-hidden">
+        <div className=" flex flex-col  h-full w-full items-center justify-between py-5 px-10 md:p-10 md:pb-20 gap-10 ">
+          <Link className=" w-full flex items-center justify-start gap-2">
+            <img className=" w-12" src={image} alt="logo" />
+            <h1 className="text-3xl font-bold text-gray-700">BlogBox</h1>
+          </Link>
+          <div className="form flex flex-col gap-5 ">
+            <div className="form-head">
+              <p className=" text-xl text-gray-400">
+                Start your blogs journey...
+              </p>
+              <h2 className="text-4xl font-bold text-blue-600 mb-6">
+                Register to BlogBox
+              </h2>
+            </div>
+            <form className="space-y-6 flex-1">
+              <TextField
+                onChange={(e) => onSignUpChange(e)}
+                name="Username"
+                fullWidth
+                label="Username"
+                variant="outlined"
+                placeholder="Username"
               />
-              <label
-                htmlFor="pass"
-                className=" text-xl text-gray-500 font-semibold"
-              >
-                Password
-              </label>
-              <input
+              <TextField
+                onChange={(e) => onSignUpChange(e)}
+                name="Email"
+                fullWidth
+                label="Email address"
+                variant="outlined"
+                placeholder="name@mail.com"
+              />
+              <TextField
+                onChange={(e) => onSignUpChange(e)}
+                name="Password"
+                fullWidth
+                label="Password"
                 type="password"
-                className=" p-4 text-md outline-none rounded-sm min-h-12 bg-gray-200 min-w-[400px] font-semibold text-gray-700"
-                id="pass"
-                placeholder="Password"
+                variant="outlined"
               />
-              <button
-                type="submit"
-                className=" bg-blue-400 mt-2 text-xl p-4 rounded-sm text-white font-semibold hover:bg-blue-600 hover:text-white"
-              >
-                Sign Up
-              </button>
+              <div className=" google-auth w-full flex flex-col items-center justify-between gap-3">
+                <p className=" text-gray-500">or register with</p>
+                <button className=" p-3 bg-gray-300 w-full flex justify-center hover:bg-pink-400 rounded-md">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    strokeWidth="0"
+                    version="1.1"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 48 48"
+                    enableBackground="new 0 0 48 48"
+                    height="2em"
+                    width="2em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill="#FFC107"
+                      d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12
+	c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24
+	c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
+                    ></path>
+                    <path
+                      fill="#FF3D00"
+                      d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657
+	C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
+                    ></path>
+                    <path
+                      fill="#4CAF50"
+                      d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36
+	c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
+                    ></path>
+                    <path
+                      fill="#1976D2"
+                      d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571
+	c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <Checkbox color="primary" />
+                  <span className="ml-2 text-sm text-gray-600">
+                    Remember me
+                  </span>
+                </div>
+                <a href="#" className="text-sm text-blue-600 hover:underline">
+                  Forgot password?
+                </a>
+              </div>
+              <div className="space-y-3">
+                <Button
+                  variant="contained"
+                  fullWidth
+                  className="bg-pink-500 hover:bg-pink-600"
+                >
+                  Register
+                </Button>
+                <Button
+                  variant="outlined"
+                  fullWidth
+                  className="text-blue-600 border-blue-600"
+                  href="/sign-in"
+                >
+                  Sign in
+                </Button>
+              </div>
             </form>
           </div>
-          <div className="form-footer pl-10 font-semibold text-gray-500 flex">
-            <p>Have an account? </p>
-            <a href="/signin" className=" text-blue-700 underline">
-              Sign In
-            </a>
-          </div>
         </div>
-        <div className="img">
-          <img className=" h-full" src={image} alt="login page" />
+        <div className=" hidden lg:flex ">
+          <picture>
+            <source srcSet={theme} type="image/webp" />
+            <img className=" h-full" src={theme} alt="image" />
+          </picture>
+          {/* This div creates the colorful background */}
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default SignUp;
